@@ -1,0 +1,94 @@
+{
+	"name": "@gooi/expresso",
+	"version": "1.0.0",
+	"description": "Expresso — a JsonLogic-compatible expression runtime, standard operator plugins, parser, and emitters.",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./src/expresso.ts",
+			"bun": "./src/expresso.ts",
+			"default": "./dist/expresso.js"
+		},
+		"./core": {
+			"types": "./src/core/index.ts",
+			"bun": "./src/core/index.ts",
+			"default": "./dist/core/index.js"
+		},
+		"./core/emitter/*": {
+			"types": "./src/core/emitter/*.ts",
+			"bun": "./src/core/emitter/*.ts",
+			"default": "./dist/core/emitter/*.js"
+		},
+		"./core/testing/*": {
+			"types": "./src/core/testing/*.ts",
+			"bun": "./src/core/testing/*.ts",
+			"default": "./dist/core/testing/*.js"
+		},
+		"./std": {
+			"types": "./src/std/plugins.ts",
+			"bun": "./src/std/plugins.ts",
+			"default": "./dist/std/plugins.js"
+		},
+		"./std/register-standard-plugins": {
+			"types": "./src/std/register-standard-plugins.ts",
+			"bun": "./src/std/register-standard-plugins.ts",
+			"default": "./dist/std/register-standard-plugins.js"
+		},
+		"./std/testing/*": {
+			"types": "./src/std/testing/*.ts",
+			"bun": "./src/std/testing/*.ts",
+			"default": "./dist/std/testing/*.js"
+		},
+		"./std/metadata": "./src/std/metadata.json",
+		"./parser": {
+			"types": "./src/parser/index.ts",
+			"bun": "./src/parser/index.ts",
+			"default": "./dist/parser/index.js"
+		},
+		"./emitter/*": {
+			"types": "./src/emitter/*.ts",
+			"bun": "./src/emitter/*.ts",
+			"default": "./dist/emitter/*.js"
+		},
+		"./testing/*": {
+			"types": "./src/testing/*.ts",
+			"bun": "./src/testing/*.ts",
+			"default": "./dist/testing/*.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"typecheck": "tsc -p tsconfig.json",
+		"test": "bun test",
+		"metadata:generate": "bun scripts/generate-metadata.mjs",
+		"spec:generate": "bun scripts/gen-spec.ts",
+		"bench:type-registry": "bun scripts/bench-type-registry.mjs",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --write",
+		"format": "biome format . --write"
+	},
+	"keywords": [
+		"expresso",
+		"operators",
+		"jsonlogic",
+		"plugin",
+		"expression"
+	],
+	"author": {
+		"name": "Expresso Team"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"typescript": "^5",
+		"zod": "^4.3.6"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"prettier": "^3.8.0",
+		"ts-morph": "^27.0.2"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}
